@@ -12,6 +12,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class WordService {
     private final WordRepository wordRepository;
+    private final CloudinaryService cloudinaryService;
 
     public Optional<Word> getTodayWord() {
         return wordRepository.findByWordDate(LocalDate.now());
@@ -31,5 +32,21 @@ public class WordService {
 
     public Optional<Word> getWordById(Long id) {
         return wordRepository.findById(id);
+    }
+
+    public void deleteWordForDate(LocalDate date) {
+        Optional<Word> word = wordRepository.findByWordDate(date);
+        if (word.isPresent()) {
+            Word existingWord = word.get();
+            // Delete image from Cloudinary if it exists
+            if (existingWord.getImageUrl() != null && !existingWord.getImageUrl().isEmpty()) {
+                String publicId = cloudinaryService.extractPublicId(existingWord.getImageUrl());
+                if (publicId != null) {
+                    cloudinaryService.deleteImage(publicId);
+                }
+            }
+            // Delete word from database
+            wordRepository.deleteByWordDate(date);
+        }
     }
 }

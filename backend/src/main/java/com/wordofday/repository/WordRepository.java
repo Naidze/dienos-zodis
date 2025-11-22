@@ -7,5 +7,8 @@ import java.util.Optional;
 
 public interface WordRepository extends JpaRepository<Word, Long> {
     Optional<Word> findByWordDate(LocalDate date);
+
     boolean existsByWordDate(LocalDate date);
+
+    void deleteByWordDate(LocalDate date);
 }
