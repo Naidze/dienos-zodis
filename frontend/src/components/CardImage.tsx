@@ -7,7 +7,6 @@ export default function CardImage({
   imageUrl?: string;
   word: string;
 }): JSX.Element | null {
-  console.log(imageUrl);
   if (!imageUrl) {
     return null;
   }
