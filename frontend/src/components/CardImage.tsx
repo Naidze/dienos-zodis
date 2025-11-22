@@ -1,4 +1,4 @@
-import "./CardImage.css";
+import "./CardImage.sass";
 
 export default function CardImage({
   imageUrl,

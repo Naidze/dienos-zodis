@@ -1,6 +1,6 @@
 import { useState } from "react";
 import CardImage from "./CardImage";
-import "./Card.css";
+import "./Card.sass";
 
 export default function Card({ word }) {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -16,8 +16,6 @@ export default function Card({ word }) {
     >
       {/* Front Side - Lithuanian */}
       <div className="flip-card-front">
-        <div className="language-badge lt">🇱🇹 Lietuvių</div>
-
         {word.imageUrl && (
           <CardImage imageUrl={word.imageUrl} word={word.word} />
         )}
@@ -41,8 +39,6 @@ export default function Card({ word }) {
 
       {/* Back Side - English */}
       <div className="flip-card-back">
-        <div className="language-badge en">🇬🇧 English</div>
-
         <CardImage imageUrl={word.imageUrl} word={word.word} />
 
         <h2 className="word-title">{word.word}</h2>

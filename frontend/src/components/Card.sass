@@ -1,0 +1,97 @@
+@import '../styles/breakpoints.sass'
+
+.flip-card
+    /* stack faces using CSS Grid so we don't need absolute positioning */
+    display: grid
+    grid-template-areas: "card"
+    place-items: stretch
+    width: 100%
+    max-width: 400px
+    height: 100%
+    transition: transform 0.6s
+    transform-style: preserve-3d
+    cursor: pointer
+    margin: 0 auto
+
+.flip-card.flipped
+    transform: rotateY(180deg)
+
+.flip-card-front, .flip-card-back
+    grid-area: card
+    backface-visibility: hidden
+    background: white
+    border-radius: 20px
+    padding: 1rem
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3)
+    display: flex
+    flex-direction: column
+    justify-content: center
+
+.flip-card-back
+    transform: rotateY(180deg)
+
+.word-title
+    font-size: 2rem
+    color: #667eea
+    margin: 0 0 2rem 0
+    text-align: center
+    font-weight: bold
+
+.flip-card-back .word-title
+    color: #764ba2
+
+.definition-section
+    margin-bottom: 2rem
+
+.section-label
+    font-size: 0.7rem
+    color: #667eea
+    font-weight: bold
+    margin-bottom: 0.5rem
+    text-transform: uppercase
+    letter-spacing: 1px
+
+.flip-card-back .section-label
+    color: #764ba2
+
+.definition-text
+    font-size: 1rem
+    line-height: 1.6
+    color: #333
+    margin: 0
+
+.example-section
+    background: #f8f9fa
+    padding: 1.5rem
+    border-radius: 8px
+    margin-bottom: 1.5rem
+
+.example-section.lt
+    border-left: 4px solid #667eea
+
+.example-section.en
+    border-left: 4px solid #764ba2
+
+.example-text
+    font-size: 1rem
+    font-style: italic
+    color: #555
+    margin: 0
+    line-height: 1.6
+
+.flip-hint
+    text-align: center
+    color: #999
+    font-size: 0.9rem
+    padding: 0.5rem 1rem
+    background: #f0f0f0
+    border-radius: 20px
+    display: inline-block
+
+@keyframes fadeIn
+    from
+        opacity: 0
+        transform: translateY(20px)
+    to
+        opacity: 1
+        transform: translateY(0)

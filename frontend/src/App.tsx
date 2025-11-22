@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { wordApi } from "./services/api";
-import "./App.css";
+import "./App.sass";
 import { Word } from "./types/word";
 import Card from "./components/Card";
 
