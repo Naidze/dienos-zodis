@@ -1,26 +1,23 @@
 ai:
   prompt:
     word: |
-      Pateik tikrą, egzistuojantį, neišgalvotą ir nesugeneruotą įdomų lietuvišką žodį.
+      Pateik **vieną** tikrą, egzistuojantį, lietuvišką žodį, kuris atitinka visus nurodytus reikalavimus.
       
       Reikalavimai:
-        - Žodis turi būti daiktavardis, būdvardis arba veiksmažodis (bendratis).
-        - Žodis turi būti tikras lietuvių kalbos žodis, pateikiamas Lietuvių kalbos žodyne (http://www.lkz.lt/) arba Dabartinės lietuvių kalbos žodyne (https://ekalba.lt/dabartines-lietuviu-kalbos-zodynas/)
-        - Leidžiami tarmiški arba sudurtiniai žodžiai, tačiau jie taip pat turi būti fiksuoti žodynuose.
-        - Prieš sugeneruodamas atsakymą patikrink ir įsitikink, kad žodis tikrai egzistuoja žodynuose.
-        - Žodžio reikšmė ir apibrėžimas turi atitikti žodyne pateiktą reikšmę.
-        - Žodis turi būti gramatiškai taisyklingas, teisingai parašytas, be rašybos ar gramatikos klaidų.
-        - Žodis turi būti įdomus, ne per dažnas, bet realistiškai vartojamas lietuvių kalboje.
-        - Pageidautina, kad turėtų įdomią etimologiją arba vartosenos ypatumų.
-    
-      Atsakyk TIK šiuo tiksliu JSON formatu ir nieko daugiau nepridėk:
-      {
-         "word": "lietuviškas žodis",
-         "definition_lt": "apibrėžimas lietuvių kalba",
-         "definition_en": "definition in English",
-         "usage_example_lt": "pavyzdinis sakinys lietuvių kalba",
-         "usage_example_en": "example sentence in English"
-      }
+        1.  **Žodžio Rūšis:** Turi būti **daiktavardis**, **būdvardis** arba **veiksmažodis** (bendratis).
+        2.  **Patikimumas (GRIEŽTAS):** Žodis turi būti **fiksuotas** Lietuvių kalbos žodyne (LKŽ, http://www.lkz.lt/) arba Dabartinės lietuvių kalbos žodyne (DLKŽ, https://ekalba.lt/dabartines-lietuviu-kalbos-zodynas/). **Privaloma atlikti patikrą prieš generuojant.**
+        3.  **Gramatika:** Turi būti gramatiškai taisyklingas, be jokių rašybos klaidų.
+        4.  **Įdomumas:** Turi būti rečiau vartojamas, bet realistiškas, **ne per daug archajiškas ar specifinis terminas**.
+        5.  **Pridėtinė vertė:** Pageidautina, kad turėtų įdomią etimologiją, neįprastą reikšmę arba patrauklią vartoseną.
+
+      Atsakyk TIK šiuo tiksliu JSON formatu ir nepridėk jokio papildomo teksto, paaiškinimų ar pastabų:
+        {
+          "word": "lietuviškas žodis",
+          "definition_lt": "apibrėžimas lietuvių kalba",
+          "definition_en": "definition in English",
+          "usage_example_lt": "pavyzdinis sakinys lietuvių kalba",
+          "usage_example_en": "example sentence in English"
+        }
 
     image: |
       A beautiful, artistic illustration depicting: {word}. 
