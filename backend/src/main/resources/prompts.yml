@@ -1,0 +1,31 @@
+ai:
+  prompt:
+    word: |
+      Pateik tikrą, egzistuojantį, neišgalvotą ir nesugeneruotą įdomų lietuvišką žodį.
+      
+      Reikalavimai:
+        - Žodis turi būti daiktavardis, būdvardis arba veiksmažodis (bendratis).
+        - Žodis turi būti tikras lietuvių kalbos žodis, pateikiamas Lietuvių kalbos žodyne (http://www.lkz.lt/) arba Dabartinės lietuvių kalbos žodyne (https://ekalba.lt/dabartines-lietuviu-kalbos-zodynas/)
+        - Leidžiami tarmiški arba sudurtiniai žodžiai, tačiau jie taip pat turi būti fiksuoti žodynuose.
+        - Prieš sugeneruodamas atsakymą patikrink ir įsitikink, kad žodis tikrai egzistuoja žodynuose.
+        - Žodžio reikšmė ir apibrėžimas turi atitikti žodyne pateiktą reikšmę.
+        - Žodis turi būti gramatiškai taisyklingas, teisingai parašytas, be rašybos ar gramatikos klaidų.
+        - Žodis turi būti įdomus, ne per dažnas, bet realistiškai vartojamas lietuvių kalboje.
+        - Pageidautina, kad turėtų įdomią etimologiją arba vartosenos ypatumų.
+    
+      Atsakyk TIK šiuo tiksliu JSON formatu ir nieko daugiau nepridėk:
+      {
+         "word": "lietuviškas žodis",
+         "definition_lt": "apibrėžimas lietuvių kalba",
+         "definition_en": "definition in English",
+         "usage_example_lt": "pavyzdinis sakinys lietuvių kalba",
+         "usage_example_en": "example sentence in English"
+      }
+
+    image: |
+      A beautiful, artistic illustration depicting: {word}. 
+      Context: {definition}. Usage scenario: {example}. 
+      Visual style: modern, vibrant colors, clean composition, educational poster aesthetic, 
+      professional illustration, high detail. 
+      Important: NO TEXT, NO LETTERS, NO WORDS in the image. 
+      Focus on visual metaphor and symbolism that represents the concept clearly.

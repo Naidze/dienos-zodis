@@ -1,0 +1,74 @@
+# Backend (Java/Maven)
+backend/target/
+backend/.classpath
+backend/.project
+backend/.settings/
+backend/.vscode/
+backend/.DS_Store
+backend/*.swp
+backend/*.swo
+backend/*~
+backend/mvnw
+backend/mvnw.cmd
+backend/src/main/resources/application-dev.properties
+
+# IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Maven
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.backup
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.maven.metadata.xml
+
+# Frontend (Node.js/React)
+frontend/node_modules/
+frontend/build/
+frontend/dist/
+frontend/.env
+frontend/.env.local
+frontend/.env.*.local
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/.DS_Store
+
+# Coverage
+frontend/coverage/
+
+# Production
+frontend/build/
+
+# Misc
+.DS_Store
+.env
+.env.local
+.env.*.local
+*.log
+*.bak
+*.tmp
+
+# OS
+.DS_Store
+Thumbs.db
+.AppleDouble
+.LSOverride
