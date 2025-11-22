@@ -12,7 +12,7 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addMapping("/api/**")
                 .allowedOrigins(
                         "http://localhost:3000",      // Development
-                        "https://lithuanian-word-frontend.onrender.com"  // Production
+                        "https://dienos-zodis.onrender.com"  // Production
                 )
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
