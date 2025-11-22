@@ -52,12 +52,6 @@ public class AIService {
         try {
             log.info("Starting word generation for date: {}", date);
 
-            // Step 0: Delete existing word for this date if it exists
-            if (wordService.wordExistsForDate(date)) {
-                log.info("Existing word found for date: {}. Deleting it.", date);
-                wordService.deleteWordForDate(date);
-            }
-
             // Step 1: Generate word text using Groq
             String wordData = generateWordWithGroq();
             log.info("Received word data: {}", wordData);
@@ -78,7 +72,8 @@ public class AIService {
                 byte[] imageBytes = generateImageWithCloudflare(
                         lithuanianWord,
                         definitionEn,
-                        usageExampleEn);
+                        usageExampleEn
+                );
 
                 String fileName = sanitizeFileName(lithuanianWord) + "_" + System.currentTimeMillis();
                 imageUrl = cloudinaryService.uploadImage(imageBytes, fileName);
@@ -119,9 +114,11 @@ public class AIService {
         Map<String, Object> requestBody = Map.of(
                 "model", groqModelName,
                 "messages", List.of(
-                        Map.of("role", "user", "content", prompt)),
+                        Map.of("role", "user", "content", prompt)
+                ),
                 "temperature", 0.8,
-                "max_tokens", 1000);
+                "max_tokens", 500
+        );
 
         try {
             String response = client.post()
@@ -134,7 +131,8 @@ public class AIService {
                                     .map(body -> {
                                         log.error("Groq API Error: {}", body);
                                         return new RuntimeException("API Error: " + body);
-                                    }))
+                                    })
+                    )
                     .bodyToMono(String.class)
                     .block();
 
@@ -202,7 +200,8 @@ public class AIService {
                                     .flatMap(body -> {
                                         log.error("Cloudflare API Error: {}", body);
                                         return Mono.error(new RuntimeException("Cloudflare API Error: " + body));
-                                    }))
+                                    })
+                    )
                     .bodyToMono(byte[].class)
                     .block();
 
